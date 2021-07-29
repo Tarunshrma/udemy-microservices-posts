@@ -1,13 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const { randomBytes } = require('crypto');
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
 
 const commentsByPostId = {};
 
 app.get('/posts/:id/comments', (req, res) => {
+  console.log("Requesting comments for post id: " + req.params.id);
   res.send(commentsByPostId[req.params.id] || []);
 });
 
