@@ -1,30 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: event-bus-deployment
+  name: query-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: event-bus
+      app: query
   template:
     metadata:
       labels:
-        app: event-bus
+        app: query
     spec:
       containers:
-      - name: event-bus
-        image: tarunshrma/event-bus:latest
+      - name: query
+        image: tarunshrma/query:latest
 ---
 kind: Service
 apiVersion: v1
 metadata:
-  name:  event-bus-clusterip-srv
+  name:  query-clusterip-srv
 spec:
   selector:
-    app:  event-bus
+    app:  query
   type:  ClusterIP
   ports:
-  - name:  event-bus
-    port:  4005
-    targetPort:  4005
+  - name:  query
+    port:  4003
+    targetPort:  4003
