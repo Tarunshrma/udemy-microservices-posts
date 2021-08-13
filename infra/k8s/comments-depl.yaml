@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: comment
-        image: tarunshrma/comment:latest
+        image: tarunshrma/comments:latest
 ---
 kind: Service
 apiVersion: v1
@@ -26,19 +26,5 @@ spec:
   type:  ClusterIP
   ports:
   - name:  comment
-    port:  4001
-    targetPort:  4001
----
-kind: Service
-apiVersion: v1
-metadata:
-  name:  comment-nodeport-srv
-spec:
-  selector:
-    app:  comment
-  type:  NodePort
-  ports:
-  - name:  comment
-    protocol: TCP
     port:  4001
     targetPort:  4001

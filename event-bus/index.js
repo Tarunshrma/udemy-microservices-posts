@@ -11,15 +11,15 @@ app.post("/events",(req,res)=>{
 
     console.log("Event posted: " + event.type);
 
-    axios.post("htpp://localhost:4000/events",event).catch((error) =>{
+    axios.post("htpp://posts-clusterip-srv:4000/events",event).catch((error) =>{
         console.log("Error  in posting event in post service" + error)
     });
 
-    axios.post("htpp://localhost:4001/events",event).catch((error) =>{
+    axios.post("htpp://comment-clusterip-srv:4001/events",event).catch((error) =>{
         console.log("Error  in posting comment in post service" + error)
     });
     
-    axios.post("htpp://localhost:4003/events",event).catch((error) =>{
+    axios.post("htpp://query-clusterip-srv:4003/events",event).catch((error) =>{
         console.log("Error  in posting comment in post service" + error)
     });
 

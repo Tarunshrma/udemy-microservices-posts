@@ -1,0 +1,6 @@
+ kubectl describe ingress <ingress-srv> : check details of ingress
+
+kubectl rollout restart deployment <deployment-name>
+
+
+kubectl logs -n ingress-nginx ingress-nginx-controller-b65df6fbb-wkc9b

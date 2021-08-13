@@ -1,9 +1,10 @@
-FROM node:14-alpine
-#ENV NODE_ENV=production
-
+FROM node:alpine
+ 
+ENV CI=true
+ 
 WORKDIR /app
-COPY  "package.json" ./
+COPY package.json ./
 RUN npm install
 COPY ./ ./
-
+ 
 CMD ["npm", "start"]

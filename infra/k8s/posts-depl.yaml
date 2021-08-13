@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: posts
-        image: tarunshrma/posts:0.0.1
+        image: tarunshrma/posts:latest
 ---
 kind: Service
 apiVersion: v1
@@ -26,19 +26,5 @@ spec:
   type:  ClusterIP
   ports:
   - name:  posts
-    port:  4000
-    targetPort:  4000
----
-kind: Service
-apiVersion: v1
-metadata:
-  name:  posts-nodeport-srv
-spec:
-  selector:
-    app:  posts
-  type:  NodePort
-  ports:
-  - name:  posts
-    protocol: TCP
     port:  4000
     targetPort:  4000
